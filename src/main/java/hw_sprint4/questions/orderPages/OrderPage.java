@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
         private final By METRO_STATION_BLOCK = By.xpath("//input[contains(@placeholder,'* Станция метро')]");
         private final By PHONE_NUMBER = By.xpath("//input[contains(@placeholder,'* Телефон: на него позвонит курьер')]");
         private final By NEXT_BUTTON = By.cssSelector("[class*='Order_NextButton'] button");
+        private final By YES_BUTTON = By.cssSelector("[class*='Order_Modal'] [class*='Order_Buttons'] button:nth-child(2)");
+        private final By ORDER_CONFIRMED = By.xpath("//class[text()=Заказ оформлен]");
         private final WebDriver driver;
 
         public OrderPage(WebDriver driver){
@@ -43,6 +45,14 @@ import org.openqa.selenium.WebDriver;
 
         public void clickNextButton() {
             driver.findElement(NEXT_BUTTON).click();
+        }
+
+        public void clickYesButton() {
+            driver.findElement(YES_BUTTON).click();
+        }
+
+        public boolean checkOrderConfirmed() {
+            return driver.findElement(ORDER_CONFIRMED).isDisplayed();
         }
     }
 

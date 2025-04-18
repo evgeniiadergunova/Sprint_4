@@ -69,11 +69,23 @@ public class OrderUpperButtonTest {
             assertTrue(rentPage.checkHeader());
 
             rentPage.start(rentInfoFormData.date, rentInfoFormData.rentDatesDropdownItem, rentInfoFormData.scooterColor, rentInfoFormData.commentForCourier);
+            orderPage.clickYesButton();
+            assertTrue(orderPage.checkOrderConfirmed());
             if (i < buttons.length - 1) {
                 driver.navigate().back();
             }
+
+
+
+
         }
+
+
+
+
     }
+
+
 
     @After
     public void teardown() {
